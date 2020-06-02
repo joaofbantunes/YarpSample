@@ -27,13 +27,6 @@ namespace Api
             }
 
             app.UseRouting();
-            
-
-            app.Use((context, next) =>
-            {
-                context.RequestServices.GetRequiredService<ILogger<Startup>>().LogInformation("Request path: " + context.Request.Path);
-                return next();
-            });
 
             app.UseHealthChecks("/health");
 
